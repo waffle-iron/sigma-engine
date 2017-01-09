@@ -4,6 +4,7 @@
 
 #include <boost/algorithm/string.hpp>
 #include <boost/filesystem.hpp>
+#include <boost/python.hpp>
 #include <boost/serialization/access.hpp>
 
 #include <functional>
@@ -90,6 +91,14 @@ namespace resource {
         os << "{"
            << "\"value:\"" << id.value() << ",\"name:\"" << id.name() << "}";
         return os;
+    }
+
+    void export_development_identifier()
+    {
+        using namespace boost::python;
+        class_<development_identifier>("identifier", init<std::string, std::string>())
+            .def(init<std::string, std::string, std::string>())
+            .def(self_ns::str(self_ns::self));
     }
 }
 }

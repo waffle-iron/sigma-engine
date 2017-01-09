@@ -93,6 +93,8 @@ namespace resource {
     SIGMA_API std::ostream& operator<<(std::ostream& os, const development_identifier& id);
 
     using identifier = development_identifier;
+
+    void export_development_identifier();
 }
 }
 

@@ -7,5 +7,5 @@ set(HEADERS
 )
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-add_executable(sigma-core-tests ${HEADERS} ${SOURCES})
-target_link_libraries(sigma-core-tests sigma-core)
+add_executable(sigmacore-tests ${HEADERS} ${SOURCES})
+target_link_libraries(sigmacore-tests sigmacore)

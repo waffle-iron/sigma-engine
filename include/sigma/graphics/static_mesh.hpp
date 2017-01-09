@@ -32,6 +32,10 @@ namespace graphics {
                 ar& tangent;
                 ar& texcoord;
             }
+            bool operator==(static_mesh_data::vertex b)
+            {
+                return this->position == b.position && this->normal == b.normal && this->tangent == b.tangent && this->texcoord == b.texcoord;
+            }
         };
         typedef std::array<unsigned int, 3> triangle;
 
@@ -72,6 +76,8 @@ namespace graphics {
     };
 
     using static_mesh_manager = resource::manager<static_mesh>;
+
+    void export_static_mesh_data();
 }
 }
 

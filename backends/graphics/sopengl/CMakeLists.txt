@@ -53,7 +53,7 @@ target_include_directories(sopengl PUBLIC include resources PRIVATE ${OPENGL_INC
 
 target_compile_definitions(sopengl PRIVATE -DSIGMA_ENGINE_OPENGL_EXPORT)
 
-target_link_libraries(sopengl sigma-core ${OPENGL_LIBRARIES})
+target_link_libraries(sopengl sigmacore ${OPENGL_LIBRARIES})
 
 file(GLOB_RECURSE SHADER_SOURCES resources ${SIGMA_ENGINE_SHADER_GLOB})
 file(GLOB_RECURSE TEXTURE_SOURCES resources ${SIGMA_ENGINE_TEXTURE_GLOB})

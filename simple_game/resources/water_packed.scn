@@ -21,5 +21,11 @@
 		{
 			"intensity" : 1
 		}
+	},
+	"test": {
+		"sigma::graphics::static_mesh": "test_file:test_group",
+		"sigma::transform": {
+			
+		}
 	}
 }

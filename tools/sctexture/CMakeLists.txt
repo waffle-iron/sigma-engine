@@ -12,4 +12,4 @@ add_executable(sctexture ${SOURCES} ${HEADERS})
 
 target_include_directories(sctexture PUBLIC include)
 
-target_link_libraries(sctexture sigma-core)
+target_link_libraries(sctexture sigmacore)

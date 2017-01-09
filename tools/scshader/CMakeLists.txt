@@ -12,4 +12,4 @@ add_executable(scshader ${SOURCES} ${HEADERS})
 
 target_include_directories(scshader PUBLIC include)
 
-target_link_libraries(scshader sigma-core)
+target_link_libraries(scshader sigmacore)

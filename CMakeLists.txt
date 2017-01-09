@@ -7,6 +7,8 @@ if(EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
     conan_basic_setup()
 endif()
 
+find_package(PythonLibs)
+
 set (CMAKE_CXX_STANDARD 14)
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES ".*[cC][lL][aA][nN][gG]")
     set(CMAKE_CXX_FLAGS "-fPIC")
@@ -43,6 +45,8 @@ set(LIBRARY_SOURCES
 
     src/sigma/util/filesystem.cpp
     src/sigma/util/json_conversion.cpp
+
+    src/sigma/simga_python.cpp
 )
 set(LIBRARY_HEADERS
     include/sigma/component.hpp
@@ -77,11 +81,12 @@ set(LIBRARY_HEADERS
     include/sigma/util/json_conversion.hpp
 )
 
-add_library(sigma-core SHARED ${LIBRARY_SOURCES} ${LIBRARY_HEADERS})
-target_include_directories(sigma-core PUBLIC include)
-target_link_libraries(sigma-core PUBLIC ${CMAKE_DL_LIBS} ${CONAN_LIBS})
-target_compile_definitions(sigma-core PUBLIC -DSIGMA_SHARED)
-target_compile_options(sigma-core PRIVATE -DSIGMA_EXPORT)
+add_library(sigmacore SHARED ${LIBRARY_SOURCES} ${LIBRARY_HEADERS})
+target_include_directories(sigmacore PUBLIC include ${PYTHON_INCLUDE_DIR})
+target_link_libraries(sigmacore PUBLIC ${PYTHON_LIBRARIES} ${CMAKE_DL_LIBS} ${CONAN_LIBS})
+target_compile_definitions(sigmacore PUBLIC -DSIGMA_SHARED)
+target_compile_options(sigmacore PRIVATE -DSIGMA_EXPORT)
+set_target_properties(sigmacore PROPERTIES PREFIX "")
 
 add_subdirectory(tools/scmaterial)
 add_subdirectory(tools/scmodel)
@@ -104,5 +109,5 @@ set(MAIN_HEADERS
 )
 
 add_executable(sigma-runner ${MAIN_SOURCES} ${MAIN_HEADERS})
-target_link_libraries(sigma-runner PUBLIC sigma-core)
+target_link_libraries(sigma-runner PUBLIC sigmacore)
 add_dependencies(sigma-runner simple-game sopengl)

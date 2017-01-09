@@ -14,4 +14,4 @@ add_executable(scmodel ${SOURCES} ${HEADERS})
 
 target_include_directories(scmodel PUBLIC include)
 
-target_link_libraries(scmodel sigma-core)
+target_link_libraries(scmodel sigmacore)

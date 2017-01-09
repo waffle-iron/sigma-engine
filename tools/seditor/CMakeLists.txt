@@ -35,6 +35,6 @@ add_executable(seditor ${SOURCES} ${HEADERS} ${RESOURCES} ${QML} ${UI_HEADERS})
 
 target_include_directories(seditor PUBLIC include PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 
-target_link_libraries(seditor sigma-core Qt5::Core Qt5::Qml Qt5::Quick Qt5::QuickControls2)
+target_link_libraries(seditor sigmacore Qt5::Core Qt5::Qml Qt5::Quick Qt5::QuickControls2)
 
 add_dependencies(seditor simple-game sopengl)

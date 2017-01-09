@@ -12,7 +12,28 @@ SDL2/2.0.5@lasote/stable
 
 [options]
 Boost:fPIC=True
-Boost:shared=True
+Boost:shared=False
+Boost:python=True
+#Boost:without_atomic=True
+#Boost:without_chrono=True
+#Boost:without_container=True
+#Boost:without_context=True
+#Boost:without_coroutine=True
+#Boost:without_coroutine2=True
+#Boost:without_date_time=True
+#Boost:without_graph=True
+#Boost:without_graph_parallel=True
+#Boost:without_iostreams=True
+#Boost:without_locale=True
+#Boost:without_log=True
+#Boost:without_math=True
+#Boost:without_mpi=True
+#Boost:without_random=True
+#Boost:without_regex=True
+#Boost:without_signals=True
+#Boost:without_test=True
+#Boost:without_timer=True
+#Boost:without_type_erasure=True
 jsoncpp:fPIC=True
 
 [generators]
